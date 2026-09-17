@@ -84,6 +84,10 @@
     font-size: clamp(27px, 4.3vw, 46px); line-height: 1.1;
     color: var(--ink); opacity: .42;
   }
+  @media (max-width: 600px) {
+    h1 .hi { font-size: inherit; line-height: inherit; margin-bottom: 0; }
+    h1 br { display: none; }
+  }
   .lede { max-width: 620px; font-size: 18px; color: var(--ink-2); margin: 0; }
 
   /* Section headings */
@@ -96,7 +100,7 @@
 
   /* Product cards */
   .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; gap: 26px; } }
 
   .card {
     background: var(--card); border: 1px solid var(--line); border-radius: 20px;
@@ -167,7 +171,7 @@
 <div class="wrap">
 
   <header>
-    <h1><span class="hi">Hi! I'm Ana</span>I love building and growing<br>products that help people.</h1>
+    <h1><span class="hi">Hi! I'm Ana</span>I love building and growing <br>products that help people.</h1>
     <p class="lede">These are the products I've built that you can actually use today. A bit about each one, and how it's going.</p>
   </header>
 
