@@ -81,7 +81,7 @@
   h1 .hi {
     display: block; margin-bottom: 10px;
     font-family: "Instrument Serif", Georgia, serif; font-weight: 400;
-    font-size: clamp(34px, 5.4vw, 58px); line-height: 1.1;
+    font-size: clamp(27px, 4.3vw, 46px); line-height: 1.1;
     color: var(--ink); opacity: .42;
   }
   .lede { max-width: 620px; font-size: 18px; color: var(--ink-2); margin: 0; }
@@ -109,10 +109,16 @@
   .card-head { display: flex; align-items: flex-start; gap: 14px; }
   .mark {
     flex: none; width: 48px; height: 48px; border-radius: 13px;
-    display: grid; place-items: center;
-    font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: 26px;
-    color: var(--c); background: var(--c-bg);
+    display: grid; place-items: center; overflow: hidden;
+    background: var(--c-bg);
   }
+  .mark img { width: 30px; height: 30px; object-fit: contain; display: block; }
+  .mark.app { background: none; }
+  .mark.app img { width: 48px; height: 48px; object-fit: cover; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .mark img.invert-dark { filter: invert(1); }
+  }
+  :root[data-theme="dark"] .mark img.invert-dark { filter: invert(1); }
   .title-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
   .card h3 { margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -.01em; line-height: 1.2; }
   .tag {
@@ -161,7 +167,7 @@
 <div class="wrap">
 
   <header>
-    <h1><span class="hi">Hi, I'm Ana.</span>I love building and growing<br>products that help people.</h1>
+    <h1><span class="hi">Hi! I'm Ana</span>I love building and growing<br>products that help people.</h1>
     <p class="lede">These are the products I've built that you can actually use today. A bit about each one, and how it's going.</p>
   </header>
 
@@ -173,7 +179,7 @@
       <!-- SlidePanda -->
       <article class="card" style="--c: var(--green); --c-bg: var(--green-bg);">
         <div class="card-head">
-          <div class="mark" aria-hidden="true">S</div>
+          <div class="mark"><img class="invert-dark" src="assets/slidepanda.svg" alt="" width="48" height="48"></div>
           <div>
             <div class="title-row">
               <h3>SlidePanda</h3>
@@ -196,7 +202,7 @@
       <!-- CasaROI -->
       <article class="card" style="--c: var(--amber); --c-bg: var(--amber-bg);">
         <div class="card-head">
-          <div class="mark" aria-hidden="true">C</div>
+          <div class="mark"><img src="assets/casaroi.svg" alt="" width="48" height="48"></div>
           <div>
             <div class="title-row">
               <h3>CasaROI</h3>
@@ -220,7 +226,7 @@
       <!-- Bonit -->
       <article class="card" style="--c: var(--indigo); --c-bg: var(--indigo-bg);">
         <div class="card-head">
-          <div class="mark" aria-hidden="true">B</div>
+          <div class="mark app"><img src="assets/bonit.png" alt="" width="48" height="48"></div>
           <div>
             <div class="title-row">
               <h3>Bonit</h3>
@@ -244,7 +250,7 @@
       <!-- SplitBasket -->
       <article class="card" style="--c: var(--coral); --c-bg: var(--coral-bg);">
         <div class="card-head">
-          <div class="mark" aria-hidden="true">S</div>
+          <div class="mark"><img src="assets/splitbasket.svg" alt="" width="48" height="48"></div>
           <div>
             <div class="title-row">
               <h3>SplitBasket</h3>
