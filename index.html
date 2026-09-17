@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ana Bujosa</title>
+<meta name="description" content="Ana Bujosa builds and ships AI products. SlidePanda, CasaROI, Bonit and SplitBasket, with links and highlights for each.">
+<meta property="og:title" content="Ana Bujosa — products">
+<meta property="og:description" content="AI products I have built and shipped: SlidePanda, CasaROI, Bonit and SplitBasket.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://anabujosa.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f1d1a'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='34' fill='%23f4efe6'%3Eab%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f2ea;
+    --bg-2: #efe9dd;
+    --card: #fffdf9;
+    --ink: #1f1d1a;
+    --ink-2: #5c574f;
+    --ink-3: #8a847a;
+    --line: #e4ddd0;
+    --line-2: #d3cbbc;
+    --tile: #f4efe6;
+    --shadow: 0 1px 2px rgba(31,29,26,.04), 0 12px 32px -16px rgba(31,29,26,.18);
+    --green: #1f6f4a; --green-bg: #dff0e6;
+    --amber: #a45a12; --amber-bg: #f8e8d2;
+    --indigo: #4a3fb5; --indigo-bg: #e5e2f7;
+    --coral: #b8402e; --coral-bg: #f8dfd8;
+    --paused: #8a847a; --paused-bg: #ebe6dc;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #151412; --bg-2: #1c1a17; --card: #1f1d1a;
+      --ink: #f1ece3; --ink-2: #b9b2a6; --ink-3: #847e73;
+      --line: #2e2b26; --line-2: #3d392f; --tile: #26231f;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -16px rgba(0,0,0,.6);
+      --green: #7fd2a4; --green-bg: #1b3328;
+      --amber: #f0b26a; --amber-bg: #3a2a16;
+      --indigo: #b3aaf5; --indigo-bg: #262347;
+      --coral: #f4a08f; --coral-bg: #3d201b;
+      --paused: #a39d92; --paused-bg: #2b2823;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #151412; --bg-2: #1c1a17; --card: #1f1d1a;
+    --ink: #f1ece3; --ink-2: #b9b2a6; --ink-3: #847e73;
+    --line: #2e2b26; --line-2: #3d392f; --tile: #26231f;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -16px rgba(0,0,0,.6);
+    --green: #7fd2a4; --green-bg: #1b3328;
+    --amber: #f0b26a; --amber-bg: #3a2a16;
+    --indigo: #b3aaf5; --indigo-bg: #262347;
+    --coral: #f4a08f; --coral-bg: #3d201b;
+    --paused: #a39d92; --paused-bg: #2b2823;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+  /* Header */
+  header { padding: 72px 0 40px; }
+  .eyebrow {
+    font-size: 13px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--ink-3); margin: 0 0 18px;
+  }
+  h1 {
+    font-family: "Instrument Serif", Georgia, serif; font-weight: 400;
+    font-size: clamp(44px, 7vw, 76px); line-height: 1; letter-spacing: -.01em;
+    margin: 0 0 20px;
+  }
+  h1 em { font-style: italic; color: var(--ink-2); }
+  .lede { max-width: 620px; font-size: 18px; color: var(--ink-2); margin: 0; }
+
+  /* Section headings */
+  h2 {
+    font-family: "Instrument Serif", Georgia, serif; font-weight: 400;
+    font-size: 30px; line-height: 1.1; margin: 0 0 6px;
+  }
+  .section { padding: 28px 0 8px; }
+  .section-sub { color: var(--ink-3); font-size: 14px; margin: 0 0 22px; }
+
+  /* Product cards */
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 20px;
+    padding: 26px 26px 22px; box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: 18px;
+    transition: transform .18s ease, border-color .18s ease;
+  }
+  @media (max-width: 420px) { .card { padding: 20px 18px 18px; } }
+  .card:hover { transform: translateY(-2px); border-color: var(--line-2); }
+  .card-head { display: flex; align-items: flex-start; gap: 14px; }
+  .mark {
+    flex: none; width: 48px; height: 48px; border-radius: 13px;
+    display: grid; place-items: center;
+    font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: 26px;
+    color: var(--c); background: var(--c-bg);
+  }
+  .title-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .card h3 { margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -.01em; line-height: 1.2; }
+  .tag {
+    font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 999px; color: var(--c); background: var(--c-bg);
+  }
+  .tag.paused { color: var(--paused); background: var(--paused-bg); }
+  .card p.desc { margin: 4px 0 0; color: var(--ink-2); font-size: 15px; }
+
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 420px) { .stats { grid-template-columns: 1fr; } }
+  .stat {
+    background: var(--tile); border-radius: 12px; padding: 12px 14px 11px;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .stat .n {
+    font-family: "Instrument Serif", Georgia, serif; font-size: 28px; line-height: 1.05;
+    color: var(--ink); letter-spacing: -.01em;
+  }
+  .stat .n small { font-size: 18px; }
+  .stat .l { font-size: 12.5px; color: var(--ink-2); line-height: 1.35; }
+  .stat.wide { grid-column: 1 / -1; }
+
+  .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 4px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 9px 14px; border-radius: 999px; font-size: 14px; font-weight: 500;
+    text-decoration: none; border: 1px solid var(--line-2);
+    background: var(--card); color: var(--ink);
+    transition: background .15s ease, border-color .15s ease, opacity .15s ease;
+  }
+  .btn:hover { background: var(--tile); border-color: var(--ink-3); }
+  .btn.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .btn.primary:hover { opacity: .88; background: var(--ink); }
+  .btn svg { width: 15px; height: 15px; flex: none; }
+  .note { font-size: 12.5px; color: var(--ink-3); margin: -6px 0 0; }
+
+  footer {
+    margin-top: 64px; padding: 28px 0 48px; border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    color: var(--ink-3); font-size: 13.5px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">Ana Bujosa</p>
+    <h1>I build AI products<br>and <em>ship them.</em></h1>
+    <p class="lede">A running list of everything I have live on the internet right now: what each product does, and the numbers behind it.</p>
+  </header>
+
+  <section class="section" aria-labelledby="featured">
+    <h2 id="featured">Products</h2>
+    <p class="section-sub">Built end to end: data, model, product, billing and growth.</p>
+
+    <div class="grid">
+
+      <!-- SlidePanda -->
+      <article class="card" style="--c: var(--green); --c-bg: var(--green-bg);">
+        <div class="card-head">
+          <div class="mark" aria-hidden="true">S</div>
+          <div>
+            <div class="title-row">
+              <h3>SlidePanda</h3>
+              <span class="tag">Web · SaaS</span>
+            </div>
+            <p class="desc">Upload a PowerPoint slide, get back a designer-level redesign as a fully editable .pptx that keeps your template, fonts and brand.</p>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><span class="n">2,400+</span><span class="l">decks redesigned by consultants, founders and teams</span></div>
+          <div class="stat"><span class="n">18<small>%</small></span><span class="l">of users who try a free slide go on to pay (3-month cohort, Aug 2026)</span></div>
+          <div class="stat"><span class="n">28<small>%</small></span><span class="l">of paying customers come back and buy again</span></div>
+          <div class="stat"><span class="n">.pptx in, .pptx out</span><span class="l">fully editable slides, not image exports, with the original master preserved</span></div>
+        </div>
+        <div class="links">
+          <a class="btn primary" href="https://slidepanda.ai" target="_blank" rel="noopener">slidepanda.ai <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        </div>
+      </article>
+
+      <!-- CasaROI -->
+      <article class="card" style="--c: var(--amber); --c-bg: var(--amber-bg);">
+        <div class="card-head">
+          <div class="mark" aria-hidden="true">C</div>
+          <div>
+            <div class="title-row">
+              <h3>CasaROI</h3>
+              <span class="tag">Web · Spain</span>
+            </div>
+            <p class="desc">Paste any Spanish property listing and get the legal maximum rent, the real after-tax return and a buy-to-let verdict in 30 seconds.</p>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><span class="n">642</span><span class="l">neighbourhoods with price, rent and IRR, across 14 cities</span></div>
+          <div class="stat"><span class="n">10</span><span class="l">data sources wired in: Catastro, SERPAVI, INE, MITMA, Euribor, idealista, Fotocasa and more</span></div>
+          <div class="stat"><span class="n">5,081</span><span class="l">census sections mapped for street-level rent-cap lookups in Catalonia</span></div>
+          <div class="stat"><span class="n">4</span><span class="l">Spanish tax regimes modelled: common, Basque, Navarra and non-resident</span></div>
+        </div>
+        <p class="note">Bilingual, with a dedicated page for every neighbourhood and a Chrome extension in the works.</p>
+        <div class="links">
+          <a class="btn primary" href="https://casaroi.app" target="_blank" rel="noopener">casaroi.app <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Bonit -->
+      <article class="card" style="--c: var(--indigo); --c-bg: var(--indigo-bg);">
+        <div class="card-head">
+          <div class="mark" aria-hidden="true">B</div>
+          <div>
+            <div class="title-row">
+              <h3>Bonit</h3>
+              <span class="tag">iOS · Android</span>
+            </div>
+            <p class="desc">A sleep-training coach for babies. Pick a method, get a personalised plan, log each night, and let an AI coach adjust the plan with you.</p>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat wide"><span class="n">Agent + human approval</span><span class="l">The coach agent watches nightly logs and proposes schedule or method changes. Nothing changes until the parent taps accept.</span></div>
+          <div class="stat"><span class="n">6</span><span class="l">sleep-training methods: Ferber, cry-it-out, chair, fading, pick-up-put-down and 3-3-3</span></div>
+          <div class="stat"><span class="n">2</span><span class="l">platforms from one codebase, live on the App Store and Google Play</span></div>
+        </div>
+        <p class="note">Coach built on Claude with tool use: it reads progress, drafts a proposal, and the parent has the final say.</p>
+        <div class="links">
+          <a class="btn primary" href="https://apps.apple.com/us/app/bonit-sleep-training/id6793262586" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.8-1.7 0-3.2 1-4.1 2.5-1.8 3.1-.5 7.6 1.3 10.1.9 1.2 1.9 2.6 3.2 2.5 1.3-.1 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.2-1.2 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.9-4zM14 5.2c.7-.8 1.2-2 1-3.2-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3.1 1.1.1 2.2-.6 2.9-1.4z"/></svg> App Store</a>
+          <a class="btn" href="https://play.google.com/store/apps/details?id=com.bonit.app" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3 13 12l-9.4 9.7c-.3-.2-.6-.6-.6-1.1V3.4c0-.5.3-.9.6-1.1zm1.7-.2 11 6.3-2.5 2.6L5.3 2.1zm0 19.8 8.5-8.9 2.5 2.6-11 6.3zM17.2 9.3l3 1.7c.9.5.9 1.5 0 2l-3 1.7-2.9-2.7 2.9-2.7z"/></svg> Google Play</a>
+        </div>
+      </article>
+
+      <!-- SplitBasket -->
+      <article class="card" style="--c: var(--coral); --c-bg: var(--coral-bg);">
+        <div class="card-head">
+          <div class="mark" aria-hidden="true">S</div>
+          <div>
+            <div class="title-row">
+              <h3>SplitBasket</h3>
+              <span class="tag paused">Paused · Sep 2026</span>
+            </div>
+            <p class="desc">Paste your grocery list and it splits the basket across up to three nearby stores to cut the bill, using live scraped prices.</p>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><span class="n">2.58<small>M</small></span><span class="l">rows in the price database, including 1.79M individual price observations</span></div>
+          <div class="stat"><span class="n">8</span><span class="l">retailers scraped: Walmart, Costco, Target, Aldi, Whole Foods, Sprouts, Safeway and Fry's</span></div>
+          <div class="stat"><span class="n">~$20</span><span class="l">median saving on a typical 13 to 17 item cart</span></div>
+          <div class="stat"><span class="n">3,000+</span><span class="l">stores mapped across 48 states, with a weekly national price panel</span></div>
+        </div>
+        <p class="note">Shipped with live Stripe billing and paying customers. The site and demo are still up; the optimiser and checkout are switched off.</p>
+        <div class="links">
+          <a class="btn primary" href="https://splitbasket.shop" target="_blank" rel="noopener">splitbasket.shop <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <footer>
+    <span>© 2026 Ana Bujosa</span>
+    <span>anabujosa.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
