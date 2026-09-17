@@ -82,13 +82,18 @@
     font-size: clamp(44px, 7vw, 76px); line-height: 1; letter-spacing: -.01em;
     margin: 0 0 20px;
   }
-  h1 em { font-style: italic; color: var(--ink-2); }
+  h1 .hi {
+    display: block; margin-bottom: 14px;
+    font-family: Inter, system-ui, sans-serif; font-weight: 400;
+    font-size: clamp(18px, 2.4vw, 24px); line-height: 1.3; letter-spacing: 0;
+    color: var(--ink-2);
+  }
   .lede { max-width: 620px; font-size: 18px; color: var(--ink-2); margin: 0; }
 
   /* Section headings */
   h2 {
     font-family: "Instrument Serif", Georgia, serif; font-weight: 400;
-    font-size: 30px; line-height: 1.1; margin: 0 0 6px;
+    font-size: 30px; line-height: 1.1; margin: 0 0 22px;
   }
   .section { padding: 28px 0 8px; }
   .section-sub { color: var(--ink-3); font-size: 14px; margin: 0 0 22px; }
@@ -161,13 +166,12 @@
 
   <header>
     <p class="eyebrow">Ana Bujosa</p>
-    <h1>Hi, I'm Ana.<br>I love building and growing<br>products that help people.</h1>
+    <h1><span class="hi">Hi, I'm Ana.</span>I love building and growing<br>products that help people.</h1>
     <p class="lede">These are the products I've built that you can actually use today. A bit about each one, and how it's going.</p>
   </header>
 
   <section class="section" aria-labelledby="featured">
-    <h2 id="featured">Products</h2>
-    <p class="section-sub">All four are mine, start to finish.</p>
+    <h2 id="featured">Products I've built end to end</h2>
 
     <div class="grid">
 
